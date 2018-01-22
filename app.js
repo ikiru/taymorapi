@@ -18,7 +18,5 @@ console.log('passed json middleware');
 //To do, put all routes in a json file and import it to automatically generate routes here
 app.use('/', require('./routes/index'))
 //app.use('/api', require('./routes/test'))
-app.use('/zohoapi', require('./routes/zoho'))
-
 
 app.listen(3001, () => console.log('Example app listening on port 3001!'))
