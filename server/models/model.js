@@ -1,10 +1,17 @@
+const Promise = require('bluebird');
+const Sequelize = require('sequelize');
+const cls = require('continuation-local-storage');
+const ns = cls.createNamespace('transaction-namespace');
+const clsBluebird = require('cls-bluebird');
+
 /*
 *
-* Connections
+* Connectionscx
 *
 */
 
-const Sequelize = require('sequelize');
+clsBluebird(ns, Promise);
+Sequelize.useCLS(ns);
 
 const sequelize = new Sequelize('database', 'username', 'password', {
   host: 'localhost',
@@ -22,6 +29,7 @@ const sequelize = new Sequelize('database', 'username', 'password', {
 *
 * Models
 *
+*
 */
 
 const Active_level = sequelize.define('active_level', {
@@ -33,11 +41,128 @@ const Active_level = sequelize.define('active_level', {
   }
 });
 
+const Business = sequelize.define('busiuness', {
+  businessID: {
+    type: Sequelize.BIGINT
+  },
+  txtBusinessName: {
+    type: Sequelize.STRING
+  },
+  intRentalDistance: {
+    type: Sequelize.INTEGER
+  },
+  intActiveLevel: {
+    type: Sequelize.INTEGER
+  },
+  intBusinessType: {
+    type: Sequelize.INTEGER
+  },
+  intLocation: {
+    type: Sequelize.INTEGER
+  },
+  intTaxRate: {
+    type: Sequelize.INTEGER
+  },
+  intTaxExempt: {
+    type: Sequelize.INTEGER
+  }
+});
+
+const Business_Type = sequelize.define('busiuness_type', {
+  businessTypeId: {
+    type: Sequelize.BIGINT
+  },
+  txtBusinessType: {
+    type: Sequelize.STRING
+  }
+});
+
 const Color = sequelize.define('color', {
   colorID: {
     type: Sequelize.BIGINT
   },
   txtColorName: {
+    type: Sequelize.STRING
+  }
+});
+
+const Costume = sequelize.define('costume', {
+  costumeID: {
+    type: Sequelize.BIGINT
+  },
+  txtCostumeName: {
+    type: Sequelize.STRING
+  },
+  txtQRCode: {
+    type: Sequelize.STRING
+  },
+  txtSize: {
+    type: Sequelize.STRING
+  },
+  txtDescription: {
+    type: Sequelize.TEXT
+  },
+  boolRental: {
+    type: Sequelize.BOOLEAN
+  },
+  intPrimaryColor: {
+    type: Sequelize.INTEGER
+  },
+  intSecondaryColor: {
+    type: Sequelize.INTEGER
+  },
+  intRentalCost: {
+    type: Sequelize.INTEGER
+  },
+  intTimePeriod: {
+    type: Sequelize.INTEGER
+  },
+  intImage: {
+    type: Sequelize.INTEGER
+  },
+  intMetaData: {
+    type: Sequelize.INTEGER
+  },
+  intShows: {
+    type: Sequelize.INTEGER
+  },
+  txtCostumeName: {
+    type: Sequelize.STRING
+  }
+});
+
+const Employees = sequelize.define('employess', {
+  employeeID: {
+    type: Sequelize.BIGINT
+  },
+  txtEmployeeFName: {
+    type: Sequelize.STRING
+  },
+  txtEmployeeLName: {
+    type: Sequelize.STRING
+  },
+  intRole: {
+    type: Sequelize.INTEGER
+  },
+  intActivityLevel: {
+    type: Sequelize.INTEGER
+  },
+});
+
+const Images = sequelize.define('images', {
+  imageID: {
+    type: Sequelize.BIGINT
+  },
+  txtImageName: {
+    type: Sequelize.STRING
+  }
+});
+
+const Location = sequelize.define('location', {
+  locationID: {
+    type: Sequelize.BIGINT
+  },
+  txtLocationName: {
     type: Sequelize.STRING
   }
 });
@@ -86,3 +211,4 @@ const SecurityLevel= sequelize.define('security_level', {
     type: Sequelize.STRING
   }
 });
+
