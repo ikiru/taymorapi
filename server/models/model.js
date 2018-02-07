@@ -158,11 +158,82 @@ const Images = sequelize.define('images', {
   }
 });
 
+const Invoice = sequelize.define('invoice', {
+  invoiceID: {
+    type: Sequelize.BIGINT
+  },
+  dateCheckOut: {
+    type: Sequelize.DATEONLY
+  },
+  dateCheckIn: {
+    type: Sequelize.DATEONLY
+  },
+  intSubTotal: {
+    type: Sequelize.INTEGER
+  },
+  intTax: {
+    type: Sequelize.INTEGER
+  },
+  intTotal: {
+    type: Sequelize.INTEGER
+  },
+  intCostume: {
+    type: Sequelize.INTEGER
+  },
+  intDeposit: {
+    type: Sequelize.INTEGER
+  },
+
+});
+
 const Location = sequelize.define('location', {
   locationID: {
     type: Sequelize.BIGINT
   },
   txtLocationName: {
+    type: Sequelize.STRING
+  },
+  txtLocationAddress: {
+    type: Sequelize.STRING
+  },
+  txtLocationCity: {
+    type: Sequelize.STRING
+  },
+  txtLocationState: {
+    type: Sequelize.STRING
+  },
+  txtLocationZip: {
+    type: Sequelize.STRING
+  },
+  txtLocationPhone: {
+    type: Sequelize.STRING
+  },
+  txtLocationEmail: {
+    type: Sequelize.STRING
+  },
+  intLocationType: {
+    type: Sequelize.INTEGER
+  },
+  intEmployees: {
+    type: Sequelize.INTEGER
+  },
+ 
+});
+
+const LocationType = sequelize.define('location_type', {
+  locationTypeID: {
+    type: Sequelize.BIGINT
+  },
+  intRentalDistance: {
+    type: Sequelize.INTEGER
+  }
+});
+
+const MetaData = sequelize.define('meta_data', {
+  metaDataID: {
+    type: Sequelize.BIGINT
+  },
+  textMetaData: {
     type: Sequelize.STRING
   }
 });
@@ -194,13 +265,49 @@ const RentalTerms= sequelize.define('rental_terms', {
   }
 });
 
-const RentalTimes= sequelize.define('rental_times', {
+const RentalTimePeriod= sequelize.define('rental_time_period', {
   rentalTimesID: {
     type: Sequelize.BIGINT
   },
-  intRentalTimes: {
+  txtRentalTimePeriod: {
+    type: Sequelize.STRING
+  },
+  intRentalTimePeriod: {
     type: Sequelize.INTEGER
   }
+});
+
+const Renter= sequelize.define('renter', {
+  renterID: {
+    type: Sequelize.BIGINT
+  },
+  txtBusinessName: {
+    type: Sequelize.STRING
+  },
+  txtFName: {
+    type: Sequelize.STRING
+  },
+  txtLName: {
+    type: Sequelize.STRING
+  },
+  txtAddress: {
+    type: Sequelize.STRING
+  },
+  txtCity: {
+    type: Sequelize.STRING
+  },
+  txtState: {
+    type: Sequelize.STRING
+  },
+  txtPhone: {
+    type: Sequelize.STRING
+  },
+  txtEmail: {
+    type: Sequelize.STRING
+  },
+  txtTaxID: {
+    type: Sequelize.STRING
+  },
 });
 
 const SecurityLevel= sequelize.define('security_level', {
@@ -208,6 +315,42 @@ const SecurityLevel= sequelize.define('security_level', {
     type: Sequelize.BIGINT
   },
   txtSecurityLevelName: {
+    type: Sequelize.STRING
+  }
+});
+
+const Shows= sequelize.define('shows', {
+  showID: {
+    type: Sequelize.BIGINT
+  },
+  txtSecurityLevelName: {
+    type: Sequelize.STRING
+  }
+});
+
+const TaxExemptNumber= sequelize.define('tax_exempt_number', {
+  taxExemptID: {
+    type: Sequelize.BIGINT
+  },
+  txtTaxExemptNumber: {
+    type: Sequelize.STRING
+  }
+});
+
+const TaxRate= sequelize.define('tax_rate', {
+  taxRateID: {
+    type: Sequelize.BIGINT
+  },
+  intTaxRate: {
+    type: Sequelize.INTEGER
+  }
+});
+
+const TimePeriod= sequelize.define('time_period', {
+  timePeriodID: {
+    type: Sequelize.BIGINT
+  },
+  txtTimePeriodName: {
     type: Sequelize.STRING
   }
 });
