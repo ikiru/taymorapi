@@ -1,4 +1,8 @@
-const app = require('./server/server');
+import express from 'express'
+import bodyParser from 'body-parser'
+import { graphqlExpress, graphqlExpress }
+
+
 
 app.listen(4000, () => {
   console.log('--------------------------------------------------')
