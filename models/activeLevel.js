@@ -1,15 +1,20 @@
 export default (sequelize, DataTypes) => {
-  const Active_level = sequelize.define('active_level', {
+  const ActiveLevel = sequelize.define('active_level', {
 
     txtActiveLevelName: {
       type: Sequelize.STRING,
       unique: true,
     }
+
   })
 
-  // Business.associate = function(models) {
-  //   models.Business.hasMany(models.Task);
-  // };
+    ActiveLevel.associate = (models) => {
+     // 1:N
+      activeLevel.belongsTo(models.business, {
+        foreignKey: 'activeLevelID'
+    })
+  }
+
 
   return User;
 }

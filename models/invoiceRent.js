@@ -6,15 +6,6 @@ export default (sequelize, DataTypes) => {
     dateCheckIn: {
       type: Sequelize.DATEONLY
     },
-    intSubTotal: {
-      type: Sequelize.INTEGER
-    },
-    intTax: {
-      type: Sequelize.INTEGER
-    },
-    intTotal: {
-      type: Sequelize.INTEGER
-    },
     intCostume: {
       type: Sequelize.INTEGER
     },

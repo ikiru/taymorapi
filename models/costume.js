@@ -4,7 +4,8 @@ export default (sequelize, DataTypes) => {
       type: Sequelize.STRING
     },
     txtQRCode: {
-      type: Sequelize.STRING
+      type: Sequelize.STRING,
+      unique: true,
     },
     txtSize: {
       type: Sequelize.STRING
