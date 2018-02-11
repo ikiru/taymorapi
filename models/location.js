@@ -24,17 +24,13 @@ export default (sequelize, DataTypes) => {
     intLocationType: {
       type: Sequelize.INTEGER
     },
-    intEmployees: {
-      type: Sequelize.INTEGER
-    },
-  
   })
 
-  
-
-  // User.associate = function(models) {
-  //   models.User.hasMany(models.Task)
-  // }
-
+  Location.associate = (models) => {
+  // 1:N
+     location.belongsTo(models.Business, {
+     foreignKey: 'locationID'
+   })
+  }
   return User
 }

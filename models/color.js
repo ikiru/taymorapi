@@ -1,15 +1,22 @@
 export default (sequelize, DataTypes) => {
-  const Color = sequelize.define('color', {
+  const Colors = sequelize.define('color', {
     txtColorName: {
       type: Sequelize.STRING,
       unique: true,
     }
   })
 
-  // User.associate = function(models) {
-  //   models.User.hasMany(models.Task);
-  // };
+  Color.associate = (models) => {
+  // 1:N
+      color.belongsTo(models.Costume, {
+      foreignKey: 'primaryColorID'
+   })
 
-  return User;
+      color.belongsTo(models.Costume, {
+      foreignKey: 'secondaryColorID'
+  })
+  }
+
+  return Colors
 }
 

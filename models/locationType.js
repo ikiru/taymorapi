@@ -5,10 +5,11 @@ export default (sequelize, DataTypes) => {
     }
   })
 
-  
-  // User.associate = function(models) {
-  //   models.User.hasMany(models.Task)
-  // }
-
-  return User
+  LocationType.associate = (models) => {
+  // 1:N
+     LocationType.belongsTo(models.Location, {
+     foreignKey: 'LocationTypeID'
+   })
+  }
+  return LocationType
 }

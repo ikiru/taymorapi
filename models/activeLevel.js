@@ -9,12 +9,14 @@ export default (sequelize, DataTypes) => {
   })
 
     ActiveLevel.associate = (models) => {
-     // 1:N
-      activeLevel.belongsTo(models.business, {
-        foreignKey: 'activeLevelID'
-    })
-  }
+    // 1:N
+       ActiveLevel.belongsTo(models.business, {
+       foreignKey: 'ActiveLevelID'
+     })
+    }
 
 
-  return User;
+  };
+
+  return ActiveLevel
 }

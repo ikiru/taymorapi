@@ -5,13 +5,14 @@ export default (sequelize, DataTypes) => {
       type: Sequelize.STRING
     }
   })
-
   
+  Images.associate = (models) => {
+  // 1:N
+     Images.belongsTo(models.Costumes, {
+     foreignKey: 'ImagesID'
+   })
+  }
 
-  // User.associate = function(models) {
-  //   models.User.hasMany(models.Task)
-  // }
-
-  return User
+  return Images
 }
 

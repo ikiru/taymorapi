@@ -15,9 +15,12 @@ export default (sequelize, DataTypes) => {
     },
   })
 
-  // User.associate = function(models) {
-  //   models.User.hasMany(models.Task)
-  // }
+Employees.associate = (models) => {
+// 1:N
+   Employees.belongsTo(models.Business, {
+   foreignKey: 'EmployeesID'
+ })
+}
 
   return User
 }
