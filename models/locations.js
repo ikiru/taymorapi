@@ -1,36 +1,34 @@
 export default (sequelize, DataTypes) => {
   const Location = sequelize.define('location', {
-    txtLocationName: {
+    name: {
       type: Sequelize.STRING
     },
-    txtLocationAddress: {
+    address: {
       type: Sequelize.STRING
     },
-    txtLocationCity: {
+    city: {
       type: Sequelize.STRING
     },
-    txtLocationState: {
+    state: {
       type: Sequelize.STRING
     },
-    txtLocationZip: {
+    zip: {
       type: Sequelize.STRING
     },
-    txtLocationPhone: {
+    phone: {
       type: Sequelize.STRING
     },
-    txtLocationEmail: {
+    email: {
       type: Sequelize.STRING
     },
-    intLocationType: {
-      type: Sequelize.INTEGER
-    },
+  
   })
 
   Location.associate = (models) => {
   // 1:N
-     location.belongsTo(models.Business, {
-     foreignKey: 'locationID'
-   })
-  }
+      location.belongsTo(models.Business, {
+      foreignKey: 'locationID'
+    })
+    }
   return User
 }

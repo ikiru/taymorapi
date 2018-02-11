@@ -1,21 +1,22 @@
 export default (sequelize, DataTypes) => {
-  const RentalTimePeriod= sequelize.define('rental_time_period', {
+  const RentalTimePeriod= sequelize.define('rentalTimePeriod', {
   
-    txtRentalTimePeriod: {
+    timePeriodname: {
       type: Sequelize.STRING
     },
-    intRentalTimePeriod: {
+    timePeriodLength: {
       type: Sequelize.INTEGER
     }
     
   })
 
-  
+  RentalTimePeriod.associate = (models) => {
+  // 1:N
+     RentalTimePeriod.belongsTo(models.Business, {
+     foreignKey: 'RentalTimePeriodID'
+   })
+  }
 
-  // User.associate = function(models) {
-  //   models.User.hasMany(models.Task)
-  // }
-
-  return User
+  return Business
 }
 

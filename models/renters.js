@@ -1,37 +1,40 @@
 export default (sequelize, DataTypes) => {
   const Renter= sequelize.define('renter', {
-    txtBusinessName: {
+    Name: {
       type: Sequelize.STRING
     },
-    txtFName: {
+    firstName: {
       type: Sequelize.STRING
     },
-    txtLName: {
+    lastName: {
       type: Sequelize.STRING
     },
-    txtAddress: {
+    address: {
       type: Sequelize.STRING
     },
-    txtCity: {
+    city: {
       type: Sequelize.STRING
     },
-    txtState: {
+    state: {
       type: Sequelize.STRING
     },
-    txtPhone: {
+    phone: {
       type: Sequelize.STRING
     },
-    txtEmail: {
+    email: {
       type: Sequelize.STRING
     },
-    txtTaxID: {
+    taxNumber: {
       type: Sequelize.STRING
     },
   })
 
-  // User.associate = function(models) {
-  //   models.User.hasMany(models.Task)
-  // }
+  Renters.associate = (models) => {
+  // 1:N
+     renters.belongsTo(models.Invoice, {
+     foreignKey: 'renters'
+   })
+  }
 
   return User
 }

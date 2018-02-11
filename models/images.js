@@ -1,7 +1,7 @@
 export default (sequelize, DataTypes) => {
   const Images = sequelize.define('images', {
 
-    txtImageName: {
+    name: {
       type: Sequelize.STRING
     }
   })
@@ -9,7 +9,7 @@ export default (sequelize, DataTypes) => {
   Images.associate = (models) => {
   // 1:N
      Images.belongsTo(models.Costumes, {
-     foreignKey: 'ImagesID'
+     foreignKey: 'imageID'
    })
   }
 

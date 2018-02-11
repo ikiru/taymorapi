@@ -1,7 +1,7 @@
 export default (sequelize, DataTypes) => {
   const ActiveLevel = sequelize.define('active_level', {
 
-    txtActiveLevelName: {
+    name: {
       type: Sequelize.STRING,
       unique: true,
     }
@@ -14,9 +14,6 @@ export default (sequelize, DataTypes) => {
        foreignKey: 'ActiveLevelID'
      })
     }
-
-
-  };
 
   return ActiveLevel
 }

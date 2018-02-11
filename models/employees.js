@@ -1,24 +1,18 @@
 export default (sequelize, DataTypes) => {
-  const Employees = sequelize.define('employess', {
+  const Employees = sequelize.define('employees', {
  
-    txtEmployeeFName: {
+    firstName: {
       type: Sequelize.STRING
     },
-    txtEmployeeLName: {
+    lastName: {
       type: Sequelize.STRING
-    },
-    intRole: {
-      type: Sequelize.INTEGER
-    },
-    intActivityLevel: {
-      type: Sequelize.INTEGER
     },
   })
 
 Employees.associate = (models) => {
 // 1:N
    Employees.belongsTo(models.Business, {
-   foreignKey: 'EmployeesID'
+   foreignKey: 'EmployeeID'
  })
 }
 

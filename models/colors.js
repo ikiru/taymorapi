@@ -1,6 +1,7 @@
 export default (sequelize, DataTypes) => {
   const Colors = sequelize.define('color', {
-    txtColorName: {
+
+    name: {
       type: Sequelize.STRING,
       unique: true,
     }

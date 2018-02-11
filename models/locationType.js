@@ -1,6 +1,6 @@
 export default (sequelize, DataTypes) => {
   const LocationType = sequelize.define('location_type', {
-    intLocationType: {
+    name: {
       type: Sequelize.INTEGER
     }
   })

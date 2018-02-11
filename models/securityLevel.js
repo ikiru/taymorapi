@@ -1,16 +1,19 @@
 export default (sequelize, DataTypes) => {
   const SecurityLevel= sequelize.define('security_level', {
     
-    txtSecurityLevelName: {
+    name: {
       type: Sequelize.STRING,
       unique: true,
     }
   })
 
-  // User.associate = function(models) {
-  //   models.User.hasMany(models.Task)
-  // }
+    SecurityLevel.associate = (models) => {
+    // 1:N
+       SecurityLevel.belongsTo(models.Employees, {
+       foreignKey: 'SecurityLevelID'
+     })
+    }
 
-  return User
+  return SecurityLevel
 }
 

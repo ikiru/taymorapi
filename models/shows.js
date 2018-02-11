@@ -1,14 +1,17 @@
 export default (sequelize, DataTypes) => {
   const Shows= sequelize.define('shows', {
   
-    txtSecurityLevelName: {
+    name: {
       type: Sequelize.STRING
     }
   })
 
-  // User.associate = function(models) {
-  //   models.User.hasMany(models.Task)
-  // }
+  Shows.associate = (models) => {
+  // 1:N
+     Shows.belongsTo(models.Costumes, {
+     foreignKey: 'ShowID'
+   })
+  } 
 
-  return User
+  return Shows
 }

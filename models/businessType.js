@@ -1,7 +1,7 @@
 export default (sequelize, DataTypes) => {
   const BusinessType = sequelize.define('business_type', {
 
-    txtBusinessType: {
+    name: {
       type: Sequelize.STRING,
       unique: true,
     }
