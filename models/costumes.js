@@ -1,3 +1,9 @@
+/*
+    This table is the main costume table.  It defines what is a costume, rental price and description.  It also includes the QR code for the costume.
+
+    Jeff Winkler 2/11/2018
+*/
+
 export default (sequelize, DataTypes) => {
   const Costumes = sequelize.define('costume', {
     name: {
@@ -23,9 +29,9 @@ export default (sequelize, DataTypes) => {
   
   Costumes.associate = (models) => {
   // 1:N
-     Costumes.belongsTo(models.Invoice, {
-     foreignKey: 'CostumeID'
-   })
+      Costumes.belongsTo(models.RentalList, {
+        foreignKey: 'CostumeID'
+    })
   }
 
   return Costumes

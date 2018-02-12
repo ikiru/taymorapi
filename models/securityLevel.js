@@ -1,3 +1,9 @@
+/*
+  This will control the access that a employee will have to the application.
+
+  Jeff Winkler 2/11/2018
+*/
+
 export default (sequelize, DataTypes) => {
   const SecurityLevel= sequelize.define('security_level', {
     

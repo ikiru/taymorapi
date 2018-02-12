@@ -1,3 +1,9 @@
+/*
+  This table refers to the images taken of the costumes.  
+
+   Jeff Winkler 2/11/2018
+*/
+
 export default (sequelize, DataTypes) => {
   const Images = sequelize.define('images', {
 
@@ -8,7 +14,7 @@ export default (sequelize, DataTypes) => {
   
   Images.associate = (models) => {
   // 1:N
-     Images.belongsTo(models.Costumes, {
+    Images.belongsTo(models.Costumes, {
      foreignKey: 'imageID'
    })
   }

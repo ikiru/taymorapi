@@ -1,5 +1,11 @@
+/*
+  This table is a reference to the time period of the costumes.
+
+  Jeff Winkler 2/18/2018
+*/
+
 export default (sequelize, DataTypes) => {
-  const TimePeriod= sequelize.define('time_period', {
+  const TimePeriod= sequelize.define('timePeriod', {
 
     period: {
       type: Sequelize.STRING,

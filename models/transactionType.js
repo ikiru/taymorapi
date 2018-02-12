@@ -1,3 +1,9 @@
+/*
+  This references the the type of transaction.  Is it loan or a rental. 
+
+  Jeff Winkler 2/11/2018
+*/
+
 export default (sequelize, DataTypes) => {
   const TransactionType= sequelize.define('transactionType', {
 

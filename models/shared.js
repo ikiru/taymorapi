@@ -1,3 +1,9 @@
+/*
+  This is the reference table for the business to share there inventory with another business.
+
+  Jeff Winkler 2/11/2018
+*/
+
 export default (sequelize, DataTypes) => {
   const Shared= sequelize.define('shared', {
   

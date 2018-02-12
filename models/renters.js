@@ -1,3 +1,9 @@
+/*
+  This is the list of the renters with there personal information.
+
+  Jeff Winkler 2/11/2018
+*/
+
 export default (sequelize, DataTypes) => {
   const Renter= sequelize.define('renter', {
     Name: {
@@ -36,7 +42,7 @@ export default (sequelize, DataTypes) => {
    })
   }
 
-  return User
+  return Renters
 }
 
 
