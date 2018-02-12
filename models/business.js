@@ -24,6 +24,19 @@ Business.associate = (models) => {
     Business.belongsTo(models.Shared, {
       foreignKey: 'BusinessID'
     })
+
+    Employees.hasMany(this.Business, {
+      foreignKey: 'BusinessID'
+    })
+
+    BusinessType.hasMany(this.Business, {
+      foreignKey: 'BusinessID'
+    })
+
+    Locations.hasMany(this.Business, {
+      foreignKey: 'BusinessID'
+    })
+
    
   }
 
