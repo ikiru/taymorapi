@@ -29,8 +29,37 @@ export default (sequelize, DataTypes) => {
   
   Costumes.associate = (models) => {
   // 1:N
-      Costumes.belongsTo(models.RentalList, {
-        foreignKey: 'CostumeID'
+
+    Costumes.belongsTo(models.RentalList, {
+      foreignKey: 'CostumeID'
+    })
+
+    Costumes.belongsTo(models.Business, {
+      foreignKey: 'CostumeID'
+    })
+
+    Color.hasMany(this.Costumes, {
+      foreignKey: 'CostumeID'
+    })
+
+    Image.hasMany(this.Costumes, {
+      foreignKey: 'CostumeID'
+    })
+
+    Size.hasMany(this.Costumes, {
+      foreignKey: 'CostumeID'
+    })
+
+    KeyWord.hasMany(this.Costumes, {
+      foreignKey: 'CostumeID'
+    })
+
+    TimePeriod.hasMany(this.Costumes, {
+      foreignKey: 'CostumeID'
+    })
+
+    Show.hasMany(this.Costumes, {
+      foreignKey: 'CostumeID'
     })
   }
 

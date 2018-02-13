@@ -37,9 +37,13 @@ export default (sequelize, DataTypes) => {
 
   Renters.associate = (models) => {
   // 1:N
-     renters.belongsTo(models.Invoice, {
+    renters.belongsTo(models.Invoice, {
      foreignKey: 'renters'
-   })
+    })
+
+    RenterType.hasMany(this.Renters, {
+      foreignKey: 'RenterID'
+    })
   }
 
   return Renters

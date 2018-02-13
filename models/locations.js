@@ -32,11 +32,13 @@ export default (sequelize, DataTypes) => {
 
   Location.associate = (models) => {
   // 1:N
+  
   location.belongsTo(models.Business, {
     foreignKey: 'locationID'
   })
-  Invoice.hasMany(models.Location, {
-    foreignKey: 'BusinessID'
+
+  LocationType.hasMany(models.Location, {
+    foreignKey: 'LocationID'
   })
 }
   return User

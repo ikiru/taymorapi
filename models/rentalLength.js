@@ -18,9 +18,11 @@ export default (sequelize, DataTypes) => {
 
   RentalTimePeriod.associate = (models) => {
   // 1:N
-     RentalLength.belongsTo(models.Business, {
+
+    RentalLength.belongsTo(models.Business, {
       foreignKey: 'RentalLengthID'
    })
+
   }
 
   return Business

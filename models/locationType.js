@@ -13,9 +13,11 @@ export default (sequelize, DataTypes) => {
 
   LocationType.associate = (models) => {
   // 1:N
-     LocationType.belongsTo(models.Location, {
-     foreignKey: 'LocationTypeID'
+
+   LocationType.belongsTo(models.Location, {
+    foreignKey: 'LocationTypeID'
    })
+
   }
   return LocationType
 }

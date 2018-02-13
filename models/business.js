@@ -33,11 +33,13 @@ Business.associate = (models) => {
       foreignKey: 'BusinessID'
     })
 
-    Locations.hasMany(this.Business, {
+    Location.hasMany(this.Business, {
       foreignKey: 'BusinessID'
     })
 
-   
+    RentalLength.hasMany(this.Business, {
+      foreignKey: 'BusinessID'
+    })
   }
 
   return Business

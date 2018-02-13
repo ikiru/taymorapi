@@ -17,11 +17,19 @@ export default (sequelize, DataTypes) => {
 
 Employees.associate = (models) => {
 // 1:N
-    Employees.belongsTo(models.Business, {
-      foreignKey: 'EmployeeID'
+  Employees.belongsTo(models.Business, {
+    foreignKey: 'EmployeeID'
   })
-    Locations.hasMany(models.Employees, {
-     foreignKey: 'EmployeesID'
+  Location.hasMany(this.Employees, {
+    foreignKey: 'EmployeeID'
+  })
+
+  Role.hasMany(this.Employees, {
+    foreignKey: 'EmployeeID'
+  })
+
+  SecurityLevel.hasMany(this.Employees, {
+    foreignKey: 'EmployeeID'
   })
 }
 

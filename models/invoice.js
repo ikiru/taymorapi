@@ -20,9 +20,18 @@ export default (sequelize, DataTypes) => {
 
   Invoices.associate = (models) => {
   // 1:N
-     ren.belongsTo(models.Costumes, {
-     foreignKey: 'InvoicesID'
-   })
+
+      Business.belongsTo(models.Invoice, {
+        foreignKey: 'BusinessID'
+    })
+
+      Renters.belongsTo(models.Invoice, {
+        foreignKey: 'BusinessID'
+    })
+
+      RenterList.belongsTo(models.Invoice, {
+        foreignKey: 'BusinessID'
+    })
   } 
 
   return Shows
