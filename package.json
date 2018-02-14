@@ -1,7 +1,7 @@
 {
   "name": "taymorapi",
   "version": "1.0.0",
-  "description": "Starter point for a graphQL course",
+  "description": "BetterOff Costumes node api",
   "repository": {
     "type": "git",
     "url": "https://github.com/ikiru/taymorapi.git"
