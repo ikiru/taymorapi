@@ -1,7 +1,13 @@
+/*
+  Main Node.js file for GraphQL.  Links to GraphiQL.
+
+  Jeff Winkler 2/13/2018
+*/
+
 import express from 'express';
 import { graphqlExpress, graphiqlExpress } from 'apollo-server-express';
 import bodyParser from 'body-parser';
-// import schema from './data/schema';
+
 
 const GRAPHQL_PORT = 3000;
 
@@ -11,11 +17,5 @@ graphQLServer.use('/graphql', bodyParser.json(), graphqlExpress({ schema }));
 graphQLServer.use('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }));
 
 graphQLServer.listen(GRAPHQL_PORT, () =>
+
   console.log(`GraphiQL is now running on http://localhost:${GRAPHQL_PORT}/graphiql` )
-//   console.log('--------------------------------------------------')
-//   console.log('When you sleep, I can hear you when you scream!!!!');
-//   console.log('On port 4000');
-//   console.log('--------------------------------------------------')
-// );
-
-

@@ -8,10 +8,12 @@ export default (sequelize, DataTypes) => {
   const RentalLength= sequelize.define('rentalLength', {
   
     name: {
-      type: Sequelize.STRING
+      type: Sequelize.STRING,
+      unique: true,
     },
     length: {
-      type: Sequelize.INTEGER
+      type: Sequelize.INTEGER,
+      unique: true,
     }
     
   })

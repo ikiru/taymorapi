@@ -7,7 +7,8 @@ export default (sequelize, DataTypes) => {
   const KeyWords = sequelize.define('keyWords', {
     
     word: {
-      type: Sequelize.STRING
+      type: Sequelize.STRING,
+      unique: true,
     }
   })
   keyWords.associate = (models) => {
