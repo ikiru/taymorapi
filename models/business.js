@@ -1,47 +1,13 @@
-/*
-    This is the master list of Business signed up to use Betteroff Costumes.  The table references many other tables and is the main connection to invoices.
-
-    Jeff Winkler 2/11/2018
-*/
-
-export default (sequelize, DataTypes) => {
-  const Business = sequelize.define('business', {
-   
-    name: {
-      type: Sequelize.STRING
-    },
-    taxRate: {
-      type: Sequelize.INTEGER
-    },
-
-  })
-Business.associate = (models) => {
-  // 1:N
-    Business.belongsTo(models.invoice, {
-      foreignKey: 'BusinessID'
-    }),
-
-    Business.belongsTo(models.Shared, {
-      foreignKey: 'BusinessID'
-    })
-
-    Employees.hasMany(this.Business, {
-      foreignKey: 'BusinessID'
-    })
-
-    BusinessType.hasMany(this.Business, {
-      foreignKey: 'BusinessID'
-    })
-
-    Location.hasMany(this.Business, {
-      foreignKey: 'BusinessID'
-    })
-
-    RentalLength.hasMany(this.Business, {
-      foreignKey: 'BusinessID'
-    })
-  }
-
-  return Business
-}
-
+'use strict';
+module.exports = (sequelize, DataTypes) => {
+  var Business = sequelize.define('Business', {
+    name: DataTypes.STRING
+  }, {
+    classMethods: {
+      associate: function(models) {
+        // associations can be defined here
+      }
+    }
+  });
+  return Business;
+};

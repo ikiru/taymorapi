@@ -1,4 +1,4 @@
-const sql = require("postgres");
+// const sql = require("postgres");
 
 const { GraphQLObjectType, GraphQLList, GraphQLInt } = require("graphql");
 // const { Device, DeviceTypeTree } = require('./types.js')

@@ -1,9 +1,9 @@
-const sql = require("postgres");
+// const sql = require("postgres");
 
 const { GraphQLObjectType, GraphQLList, GraphQLInt } = require("graphql");
 // const { Device, UnassignedDeviceInput, ResponseCode } = require('./types.js');
-const QuerySPCreator = require('./querySPCreator.js');
-const { Code1000, Code4000 } = require('./codes.js');
+// const QuerySPCreator = require('./querySPCreator.js');
+const { Code1000, Code4000 } = require('../graphql/code');
 
 const MutationRoot = new GraphQLObjectType({
   name: 'Queries',

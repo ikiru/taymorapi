@@ -1,24 +1,13 @@
-/*
-    This tablereference the different type of business.(i.e. Professional Costume shop, Community Theatre, High School, Individual)
-
-    Jeff Winkler 2/11/2018
-*/
-
-export default (sequelize, DataTypes) => {
-  const BusinessType = sequelize.define('businessType', {
-
-    name: {
-      type: Sequelize.STRING,
-      unique: true,
+'use strict';
+module.exports = (sequelize, DataTypes) => {
+  var BusinessType = sequelize.define('BusinessType', {
+    name: DataTypes.STRING
+  }, {
+    classMethods: {
+      associate: function(models) {
+        // associations can be defined here
+      }
     }
-  })
-
-  BusinessType.associate = (models) => {
-  // 1:N
-     BusinessType.belongsTo(models.Business, {
-     foreignKey: 'Business_TypeID'
-   })
-  }
-
-  return BusinessType
-}
+  });
+  return BusinessType;
+};

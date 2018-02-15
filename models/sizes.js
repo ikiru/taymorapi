@@ -1,26 +1,14 @@
-/*
-  Size of the costumes both men and women
-
-  Jeff Winkler 
-*/
-
-export default (sequelize, DataTypes) => {
-  const Sizes = sequelize.define('sizes', {
-    
-    sex: {
-      type: Sequelize.STRING
-    },
-    size: {
-      type: Sequelize.STRING
+'use strict';
+module.exports = (sequelize, DataTypes) => {
+  var Sizes = sequelize.define('Sizes', {
+    sex: DataTypes.STRING,
+    size: DataTypes.STRING
+  }, {
+    classMethods: {
+      associate: function(models) {
+        // associations can be defined here
+      }
     }
-  })
-
-  sizes.associate = (models) => {
-  // 1:N
-    sizes.belongsTo(models.Costumes, {
-     foreignKey: 'sizesID'
-   })
-  }
-
-  return Sizes
-}
+  });
+  return Sizes;
+};
