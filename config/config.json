@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "jeffwinkler",
-    "password": "",
+    "username": "betteroffcostumes",
+    "password": "Pepper00~~!!",
     "database": "taymor_development",
-    "host": "127.0.0.1",
+    "host": "betteroff.cxc47tthyp3m.us-east-2.rds.amazonaws.com",
     "dialect": "postgres"
   }
 }

@@ -8,6 +8,12 @@ module.exports = (sequelize, DataTypes) => {
         // associations can be defined here
       }
     }
-  });
+  })
+    ActiveLevel.associate = (models) => {
+      // 1:N
+        ActiveLevel.belongsTo(models.business, {
+        foreignKey: 'ActiveLevelID'
+      })
+    }
   return ActiveLevel;
 };
