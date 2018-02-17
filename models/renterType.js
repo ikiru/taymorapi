@@ -4,7 +4,7 @@
   Jeff Winkler 
 */
 
-export default (sequelize, DataTypes) => {
+module.exports = (sequelize, DataTypes) => {
   const RenterTypes= sequelize.define('renterTypes', {
   
     name: {

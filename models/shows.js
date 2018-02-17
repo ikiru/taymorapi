@@ -1,13 +1,23 @@
-'use strict';
+/*
+  This table references a list of broadway shows.  Hopefully in the futre it can refernce an api with a list of the shows.
+
+  Jeff Winkler 2/11/2018
+*/
+
 module.exports = (sequelize, DataTypes) => {
-  var Shows = sequelize.define('Shows', {
-    name: DataTypes.STRING
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
+  const Shows= sequelize.define('shows', {
+  
+    name: {
+      type: Sequelize.STRING
     }
-  });
-  return Shows;
-};
+  })
+
+  Shows.associate = (models) => {
+  // 1:N
+     Shows.belongsTo(models.Costumes, {
+     foreignKey: 'ShowID'
+   })
+  } 
+
+  return Shows
+}

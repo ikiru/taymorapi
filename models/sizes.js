@@ -1,14 +1,26 @@
-'use strict';
+/*
+  Size of the costumes both men and women
+
+  Jeff Winkler 
+*/
+
 module.exports = (sequelize, DataTypes) => {
-  var Sizes = sequelize.define('Sizes', {
-    sex: DataTypes.STRING,
-    size: DataTypes.STRING
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
+  const Sizes = sequelize.define('sizes', {
+    
+    sex: {
+      type: Sequelize.STRING
+    },
+    size: {
+      type: Sequelize.STRING
     }
-  });
-  return Sizes;
-};
+  })
+
+  sizes.associate = (models) => {
+  // 1:N
+    sizes.belongsTo(models.Costumes, {
+     foreignKey: 'sizesID'
+   })
+  }
+
+  return Sizes
+}

@@ -1,13 +1,22 @@
-'use strict';
+/*
+  This table refers to the short Key workds that can be applied to a costume that a renter could use to search.
+
+  Jeff Winkler 2/11/2018
+*/
 module.exports = (sequelize, DataTypes) => {
-  var KeyWords = sequelize.define('KeyWords', {
-    name: DataTypes.STRING
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
+  const KeyWords = sequelize.define('keyWords', {
+    
+    word: {
+      type: Sequelize.STRING,
+      unique: true,
     }
-  });
-  return KeyWords;
-};
+  })
+  keyWords.associate = (models) => {
+  // 1:N
+     keyWords.belongsTo(models.Costumes, {
+     foreignKey: 'keyWordID'
+   })
+  }
+
+  return KeyWords
+}

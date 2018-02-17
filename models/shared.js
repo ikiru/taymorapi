@@ -4,7 +4,7 @@
   Jeff Winkler 2/11/2018
 */
 
-export default (sequelize, DataTypes) => {
+module.exports = (sequelize, DataTypes) => {
   const Shared= sequelize.define('shared', {
   
     

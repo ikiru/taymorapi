@@ -1,13 +1,22 @@
-'use strict';
+/*
+  this refers to the role of the employ.  (i.e Owner, costumer)
+
+  Jeff Winkler 
+*/
+
 module.exports = (sequelize, DataTypes) => {
-  var Roles = sequelize.define('Roles', {
-    name: DataTypes.STRING
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
+  const Role = sequelize.define('roles', {
+    
+    word: {
+      type: Sequelize.STRING
     }
-  });
-  return Roles;
-};
+  })
+    role.associate = (models) => {
+  // 1:N
+     role.belongsTo(models.Employees, {
+     foreignKey: 'roleID'
+   })
+  }
+
+  return Role
+}

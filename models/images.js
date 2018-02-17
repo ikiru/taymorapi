@@ -1,13 +1,24 @@
-'use strict';
+/*
+  This table refers to the images taken of the costumes.  
+
+   Jeff Winkler 2/11/2018
+*/
+
 module.exports = (sequelize, DataTypes) => {
-  var Images = sequelize.define('Images', {
-    image: DataTypes.STRING
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
+  const Images = sequelize.define('images', {
+
+    name: {
+      type: Sequelize.STRING
     }
-  });
-  return Images;
-};
+  })
+  
+  Images.associate = (models) => {
+  // 1:N
+    Images.belongsTo(models.Costumes, {
+     foreignKey: 'imageID'
+   })
+  }
+
+  return Images
+}
+

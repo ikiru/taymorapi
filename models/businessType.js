@@ -1,13 +1,24 @@
-'use strict';
+/*
+    This tablereference the different type of business.(i.e. Professional Costume shop, Community Theatre, High School, Individual)
+
+    Jeff Winkler 2/11/2018
+*/
+
 module.exports = (sequelize, DataTypes) => {
-  var BusinessType = sequelize.define('BusinessType', {
-    name: DataTypes.STRING
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
+  const BusinessType = sequelize.define('businessType', {
+
+    name: {
+      type: Sequelize.STRING,
+      unique: true,
     }
-  });
-  return BusinessType;
-};
+  })
+
+  BusinessType.associate = (models) => {
+  // 1:N
+     BusinessType.belongsTo(models.Business, {
+     foreignKey: 'Business_TypeID'
+   })
+  }
+
+  return BusinessType
+}

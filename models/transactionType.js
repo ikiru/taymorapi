@@ -1,13 +1,24 @@
-'use strict';
+/*
+  This references the the type of transaction.  Is it loan or a rental. 
+
+  Jeff Winkler 2/11/2018
+*/
+
 module.exports = (sequelize, DataTypes) => {
-  var TransactionType = sequelize.define('TransactionType', {
-    name: DataTypes.STRING
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
+  const TransactionType= sequelize.define('transactionType', {
+
+    name: {
+      type: Sequelize.STRING,
+      unique: true,
     }
-  });
-  return TransactionType;
-};
+  })
+
+  TransactionType.associate = (models) => {
+  // 1:N
+    transactionType.belongsTo(models.Invoice, {
+     foreignKey: 'transactionTypeID'
+   })
+  }
+  
+  return TransactionType
+}

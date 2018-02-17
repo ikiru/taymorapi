@@ -1,40 +1,38 @@
-import Sequelize from 'sequelize'
+'use strict';
 
-const sequelize = new Sequelize('taymor', 'postgres', 'postgres')
+var fs        = require('fs');
+var path      = require('path');
+var Sequelize = require('sequelize');
+var basename  = path.basename(__filename);
+var env       = process.env.NODE_ENV || 'development';
+var config    = require(__dirname + '/../config/config.json')[env];
+var db        = {};
 
-const models= {
-  activeLevel: sequelize.import('./activeLevel'),
-  business: sequelize.import('./business'),
-  businessType: sequelize.import('./businessType'),
-  colors: sequelize.import('./colors'),
-  costumes: sequelize.import('./costumes'),
-  employees: sequelize.import('./employees'),
-  images: sequelize.import('./images'),
-  invoice: sequelize.import('./invoice'),
-  keyWords: sequelize.import('./keyWords'),
-  locations: sequelize.import('./locations'),
-  locationType: sequelize.import('./locationType'),
-  rentalLength: sequelize.import('./rentalLength'),
-  rentalList: sequelize.import('./rentalList'),
-  renters: sequelize.import('./renters'),
-  renterType: sequelize.import('./renterType'),
-  roles: sequelize.import('./roles'),
-  securityLevel: sequelize.import('./securityLevel'),
-  shared: sequelize.import('./shared'),
-  shows: sequelize.import('./shows'),
-  sizes: sequelize.import('./sizes'),
-  taxRate: sequelize.import('./taxRate'),
-  timePeriod: sequelize.import('./timePeriod'),
-  transactionType: sequelize.import('./transactionType'),
-};
 
-Object.keys(models).forEach(modelName => {
-  if (models[modelName].associate) {
-    models[modelName].associate(builtinModules);
+
+if (config.use_env_variable) {
+  var sequelize = new Sequelize(process.env[config.use_env_variable], config);
+} else {
+  var sequelize = new Sequelize(config.database, config.username, config.password, config);
+}
+
+fs
+  .readdirSync(__dirname)
+  .filter(file => {
+    return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js');
+  })
+  .forEach(file => {
+    var model = sequelize['import'](path.join(__dirname, file));
+    db[model.name] = model;
+  });
+
+Object.keys(db).forEach(modelName => {
+  if (db[modelName].associate) {
+    db[modelName].associate(db);
   }
 });
 
-models.sequelize = sequelize;
-models.Sequelize = Sequelize;
+db.sequelize = sequelize;
+db.Sequelize = Sequelize;
 
-export default models
+module.exports = db;

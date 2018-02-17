@@ -1,21 +1,52 @@
-'use strict';
+/*
+  This is the list of the renters with there personal information.
+
+  Jeff Winkler 2/11/2018
+*/
+
 module.exports = (sequelize, DataTypes) => {
-  var Renters = sequelize.define('Renters', {
-    name: DataTypes.STRING,
-    firstName: DataTypes.STRING,
-    lastName: DataTypes.STRING,
-    address: DataTypes.STRING,
-    city: DataTypes.STRING,
-    state: DataTypes.STRING,
-    phone: DataTypes.STRING,
-    email: DataTypes.STRING,
-    taxNumber: DataTypes.STRING
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
-    }
-  });
-  return Renters;
-};
+  const Renter= sequelize.define('renter', {
+    Name: {
+      type: Sequelize.STRING
+    },
+    firstName: {
+      type: Sequelize.STRING
+    },
+    lastName: {
+      type: Sequelize.STRING
+    },
+    address: {
+      type: Sequelize.STRING
+    },
+    city: {
+      type: Sequelize.STRING
+    },
+    state: {
+      type: Sequelize.STRING
+    },
+    phone: {
+      type: Sequelize.STRING
+    },
+    email: {
+      type: Sequelize.STRING
+    },
+    taxNumber: {
+      type: Sequelize.STRING
+    },
+  })
+
+  Renters.associate = (models) => {
+  // 1:N
+    renters.belongsTo(models.Invoice, {
+     foreignKey: 'renters'
+    })
+
+    RenterType.hasMany(this.Renters, {
+      foreignKey: 'RenterID'
+    })
+  }
+
+  return Renters
+}
+
+

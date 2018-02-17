@@ -1,25 +1,13 @@
-/*
-  This will control the access that a employee will have to the application.
-
-  Jeff Winkler 2/11/2018
-*/
-
-export default (sequelize, DataTypes) => {
-  const SecurityLevel= sequelize.define('security_level', {
-    
-    name: {
-      type: Sequelize.STRING,
-      unique: true,
+'use strict';
+module.exports = (sequelize, DataTypes) => {
+  var SecurityLevel = sequelize.define('SecurityLevel', {
+    name: DataTypes.STRING
+  }, {
+    classMethods: {
+      associate: function(models) {
+        // associations can be defined here
+      }
     }
-  })
-
-    SecurityLevel.associate = (models) => {
-    // 1:N
-       SecurityLevel.belongsTo(models.Employees, {
-       foreignKey: 'SecurityLevelID'
-     })
-    }
-
-  return SecurityLevel
-}
-
+  });
+  return SecurityLevel;
+};

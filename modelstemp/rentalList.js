@@ -1,23 +1,13 @@
-/*
-  This is the list of costumes that will go onto a single invoice.
-
-  Jeff Winkler 2/11/2018
-*/
-
-export default (sequelize, DataTypes) => {
-  const RentalList= sequelize.define('rentalList', {
-
-    name: {
-      type: Sequelize.STRING,
+'use strict';
+module.exports = (sequelize, DataTypes) => {
+  var RentalList = sequelize.define('RentalList', {
+    name: DataTypes.STRING
+  }, {
+    classMethods: {
+      associate: function(models) {
+        // associations can be defined here
+      }
     }
-  })
-
-  RentalList.associate = (models) => {
-  // 1:N
-    rentalList.belongsTo(models.Invoice, {
-     foreignKey: 'rentalListID'
-   })
-  }
-  
-  return RentalList
-}
+  });
+  return RentalList;
+};

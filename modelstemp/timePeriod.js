@@ -1,26 +1,13 @@
-/*
-  This table is a reference to the time period of the costumes.
-
-  Jeff Winkler 2/18/2018
-*/
-
-export default (sequelize, DataTypes) => {
-  const TimePeriod= sequelize.define('timePeriod', {
-
-    period: {
-      type: Sequelize.STRING,
-      unique: true,
+'use strict';
+module.exports = (sequelize, DataTypes) => {
+  var TimePeriod = sequelize.define('TimePeriod', {
+    period: DataTypes.STRING
+  }, {
+    classMethods: {
+      associate: function(models) {
+        // associations can be defined here
+      }
     }
-
-  })
-
-  TimePeriod.associate = (models) => {
-  // 1:N
-     timePeriod.belongsTo(models.Costumes, {
-     foreignKey: 'timePeriodID'
-   })
-  }
-  
-
-  return TimePeriod
-}
+  });
+  return TimePeriod;
+};
